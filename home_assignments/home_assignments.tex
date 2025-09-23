@@ -277,6 +277,99 @@ If he reaches points $(-1)$ or $(3)$ he stays there forever.
     \end{enumerate}
 \end{enumerate}
 
+\section*{Home assignment 3}
+
+Maybe useful for the midterm exam ;)
+
+\begin{enumerate}
+\item A monkey is randomly typing letters. 
+She types $a$ with probability $0.01$, $b$ — with probability $0.02$ and $c$ — with probability $0.03$.
+Other probabilities are unknown and not relevant. 
+She stops if starting exactly from the beginning she types one of the words: $abc$, $bacab$ or $abba$. 
+Let $A$ be the event that she stops. 
+
+Consider the generating function $f(a, b, c) = abc + bacab + abba$.
+What is the combinatorial or probabilistic meaning of the following quantities:
+\begin{enumerate}
+  \item $f(1, 1, 1)$;
+  \item $f(0.01, 0.02, 0.03)$;
+  \item $g'(1)$ if $g(t) = f(0.01t, 0.02t, 0.03t)$;
+  \item $g'(1)$ if $g(t) = f(0.01, 0.03, 0.03t)$;
+  \item $g'(1)/g(1)$ if $g(t) = f(0.01t, 0.02t, 0.03t)$;
+  \item $g'(1)/g(1)$ if $g(t) = f(0.01, 0.03, 0.03t)$;
+  \item $g'(0)$ if $g(t) = f(0.01\exp(t), 0.02\exp(t), 0.03\exp(t))$.
+  \item $g'(0) / g(0)$ if $g(t) = f(0.01, 0.02, 0.03\exp(t))$.
+\end{enumerate}
+
+\item A monkey is randomly typing letters. 
+She types $a$ with probability $0.01$, $b$ — with probability $0.02$ and $c$ — with probability $0.03$.
+Other probabilities are unknown and not relevant. 
+She stops if starting exactly from the beginning she types one of the words: $abc$, $bacab$, $abba$, \dots{ } 
+Let $A$ be the event that she stops. 
+
+You don't know the exact list of words but you can do any calculations with the generating function  function $f(a, b, c) = abc + bacab + abba + \dots$.
+
+How can you extract the following information:
+\begin{enumerate}
+  \item the number of words;
+  \item the probability that monkey stops;
+  \item the expected payoff when she gets one dollar for every letter typed in the case of finite game;
+  \item the expected payoff when  she gets one dollar for every letter $c$ typed in the case of finite game;  
+  \item the conditional expected payoff when she gets one dollar for every letter typed if it is known that the game ended in a finite number of steps;
+  \item the conditional expected payoff when she gets one dollar for every letter $c$ typed if it is known that the game ended in a finite number of steps;
+  \item $\E(N_a N_b I(A))$ where $N_a$ is the number of $a$ letters, $N_b$ — the number of $b$ letters and $I(A)$ — the indicator of a finite game.
+  \item $\E(N_a (N_a - 1) N_b (N_b - 1) (N_b - 2) I(A))$ where $N_a$ is the number of $a$ letters, $N_b$ — the number of $b$ letters and $I(A)$ — the indicator of a finite game.
+  \item $\E(N_a^2 N_b^3 I(A))$ where $N_a$ is the number of $a$ letters, $N_b$ — the number of $b$ letters and $I(A)$ — the indicator of a finite game.
+\end{enumerate}
+Hint: in points (c) and (d) try to write the expression with and without exponent.
+
+
+\end{enumerate}
+
+
+\section*{Home assignment 4}
+
+Enters in the quizzes during the week 5: 29 september — 4 october. 
+
+
+\begin{enumerate}
+\item The moment generating function of a random variable $X$ is $1/(1-2t)$.
+  \begin{enumerate}
+      \item Find the moment generating function of $2X$.
+      \item Find the moment generating function of $X + Y$ where $X$ and $Y$ are independent and identically distributed.
+      \item Do you remember the sum of geometric progression? Find $\E(X^{2025})$.
+  \end{enumerate}
+
+\item The MGF of the random variable $W$ has a Taylor expansion that starts with $M(t) = 1 + 2t + 7t^2 + 20t^3 + \ldots$.
+
+\begin{enumerate}
+    \item Find $\E(W)$, $\Var(W)$, $\E(W^3)$.
+    \item Find the starting terms of the Taylor expansion of the moment generating function for the sum $S = W + W^*$, where $W$ and $W^*$ are independent and identically distributed. 
+\end{enumerate}
+
+
+
+\item There are three problems in the home assignment. 
+  Time spent on each problem is modelled by independend exponentially distributed random variables with rate $\lambda$: $X_1$, $X_2$, $X_3$.
+
+  \begin{enumerate}
+      \item Find the moment generating function of $X_i$ and hence the moment generating function of $S = X_1 + X_2 + X_3$.
+      \item Find $\E(S^3)$.
+  \end{enumerate}
+
+\item Let  $W = \sum_{i=1}^N X_i$,  where the $X_i$'s are independent and identically distributed Bernoulli random variables with probability of success $p$. 
+The random variable $N$ has a binomial distribution with parameter $n$ and probability of success $p$, and is independent of the $X_i$'s.
+
+  \begin{enumerate}
+    \item Find the moment generating function for $X_i$.
+    \item Find the moment generating function for $W$ given that $N$ is fixed. 
+    \item Find the moment generating function for $W$.
+    \item State the probability mass function of $W$. 
+  \end{enumerate}
+
+\end{enumerate}
+
+
 \end{document}
 
 

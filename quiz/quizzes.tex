@@ -1,0 +1,203 @@
+% arara: xelatex
+\documentclass[12pt]{article}
+
+% Stochastic Processes, 2024-2025
+
+% \usepackage{physics}
+
+\usepackage{zxjatype}
+\usepackage[ipa]{zxjafont}
+% https://tex.stackexchange.com/questions/15516/how-to-write-japanese-with-latex
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\usepackage{tikzducks}
+
+\usepackage{tikz} % картинки в tikz
+\usetikzlibrary{shapes, arrows, positioning}
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amsfonts, amssymb} % куча стандартных математических плюшек
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+\usepackage{url} % to use \url{link to web}
+
+
+\newcommand{\smallduck}{\begin{tikzpicture}[scale=0.3]
+    \duck[
+        cape=black,
+        hat=black,
+        mask=black
+    ]
+    \end{tikzpicture}}
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Time Series and Stochastic Processes}
+\chead{}
+\rhead{Quizzes for samurai}
+\lfoot{刃に強き者は礼にすぐる (Ha ni tsuyoki-sha wa rei ni suguru) \\ Кто искусен в обращении с клинком, искусен и в вежливости.}
+\cfoot{}
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{tcolorbox} % рамочки!
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos - печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+\setcounter{MaxMatrixCols}{20}
+% by crazy default pmatrix supports only 10 cols :)
+
+
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+% \setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+% \newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+% \setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+%% эконометрические сокращения
+\DeclareMathOperator{\Cov}{\mathbb{C}ov}
+\DeclareMathOperator{\Corr}{\mathbb{C}orr}
+\DeclareMathOperator{\Var}{\mathbb{V}ar}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\DeclareMathOperator{\E}{\mathbb{E}}
+% \DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\card}{card}
+
+\DeclareMathOperator{\Convex}{Convex}
+\DeclareMathOperator{\plim}{plim}
+
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cH}{\mathcal{H}}
+
+
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\hb}{\hat{\beta}}
+
+
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\scalp}{\langle}{\rangle}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+
+
+
+\begin{document}
+
+\section*{Quiz 2}
+
+\newpage
+\begin{enumerate}
+\item I throw a fair dice indefinitely often. 
+If it shows 1 then the sum in the hat is burned and the game stops. 
+If it shows 2 then I immediately get 2 roubles, the sum in the hat is burned and the game stops. 
+If it shows 3 then the sum in the hat is burned and the game continues.
+If it shows 4 then I immediately get 4 roubles and the game continues. 
+It it shows 5 then 5 rouble is added to the hat and the game continues.
+If it shows 6 nothing happens and the game continues. 
+
+What is my expected total payoff?
+
+\newpage
+\item I throw a fair dice indefinitely often. 
+If it shows 1 then the sum in the hat is burned and the game stops. 
+If it shows 2 then I immediately get 2 roubles, the sum in the hat is burned and the game stops. 
+If it shows 3 then the sum in the hat is burned and the game continues.
+If it shows 4 then I immediately get 4 roubles plus the sum in the hat and the game stops. 
+It it shows 5 then 5 rouble is added to the hat and the game continues.
+If it shows 6 nothing happens and the game continues. 
+
+What is my expected total payoff?
+
+
+\newpage
+\item Winnie-the-Pooh starts at zero on the real line. 
+Every minute he moves one step to the left with probability $0.4$, one step to the right with probability $0.1$ or skips. 
+If he reaches points $(-2)$ or $(2)$ he stays there forever. 
+
+What is the expected duration of the game?
+
+\newpage
+\item Winnie-the-Pooh starts at zero on the real line. 
+Every minute he moves one step to the left with probability $0.4$, one step to the right with probability $0.1$ or skips. 
+If he reaches points $(-2)$ or $(2)$ he stays there forever. 
+
+What is the probability that he will eventually rest at $(2)$?
+
+\newpage
+\item Alice throws a fair coin until the sequence HНH appears.
+
+What is the expected duration of the game?
+
+\newpage
+\item Alice throws a fair coin until the sequence HHT appears.
+
+What is the expected duration of the game?
+
+
+
+\end{enumerate}
+
+\end{document}
+
