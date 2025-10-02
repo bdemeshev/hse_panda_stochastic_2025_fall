@@ -370,6 +370,69 @@ The random variable $N$ has a binomial distribution with parameter $n$ and proba
 \end{enumerate}
 
 
+
+
+\section*{Home assignment 5}
+
+Enters in the quizzes during the week 6: 6–11 october. 
+
+
+\begin{enumerate}
+\item Consider the following Markov chain:
+
+\begin{tikzpicture}[state/.style={circle, draw, minimum size=10mm}]
+
+% Nodes
+\node[state] (1) {1};
+\node[state, right=of 1] (2) {2};
+\node[state, right=of 2] (3) {3};
+\node[state, below=of 2] (5) {5};
+\node[state, left=of 5] (4) {4};
+\node[state, right=of 5] (6) {6};
+\node[state, right=of 6] (7) {7};
+\node[state, right=of 7] (8) {8};
+\node[state, below=of 5] (9) {9};
+\node[state, right=of 9] (10) {10};
+\node[state, right=of 10] (11) {11};
+
+% Edges
+\path[->]
+(1) edge node {1} (2)
+(2) edge[bend left] node {0.3} (3)
+(2) edge[bend left] node[left] {0.7} (5)
+(3) edge node {1} (6)
+(5) edge[bend left] node {0.1} (4)
+(4) edge[loop left] node {1} (4)
+(6) edge[bend left] node {0.5} (5)
+(5) edge[bend left] node {0.2} (6)
+(5) edge node {0.7} (9)
+(6) edge node {0.5} (7)
+(7) edge[bend left] node {1} (8)
+(8) edge[bend left] node {0.6} (7)
+(8) edge[loop right] node {0.4} (8)
+(9) edge node {1} (10)
+(10) edge node {1} (11)
+(11) edge[bend left] node {1} (9);
+
+\end{tikzpicture}
+
+
+\begin{enumerate}
+    \item Cut the Markov chain into communicating classes and classify them as transient, positive recurrent or null-recurrent. 
+    \item Is the chain irreducible?
+    \item Find the period of every state. 
+\end{enumerate}
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+
 \end{document}
 
 
