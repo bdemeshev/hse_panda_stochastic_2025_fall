@@ -268,7 +268,7 @@ If he reaches points $(-1)$ or $(3)$ he stays there forever.
         If it lands on $H$ you play Game A. If it lands on $T$ you play Game B. 
     \end{enumerate}
     
-    Your initial capital is $10000\$$.
+    Your initial capital is $10000\$ $.
 
     \begin{enumerate}
         \item Generate and plot two random trajectories of your wellfare if you play Game A $10^6$ times.
@@ -478,6 +478,68 @@ F_{n}(x) =
 Find the limit of the sequence $(X_n)_{n=1}^{\infty}$ in distribution.
 
 \end{enumerate}
+
+
+\section*{Home assignment 7}
+
+Live in quizzes: 1 December. 
+
+\begin{minipage}{0.9\textwidth}
+        \includegraphics[scale=0.85]{figures/roman_numerals_2x.png}  
+\end{minipage}
+
+
+\begin{enumerate}
+    \item Let $\Omega = \{a, b, c\}$ and the distribution of $Y$ is given by the table 
+
+  \begin{tabular}{cccc}
+    \toprule
+    $w$ & a & b & c \\
+    $Y(w)$ & $5$ & $4$ & $3$ \\
+    $\P(\{w\})$ & $0.2$ & $0.3$ & $0.5$ \\
+    \bottomrule
+  \end{tabular}
+    
+  The sigma-algebra $\cF$ is defined by $\cF = \sigma(A)$ where $A = \{Y \neq 4 \}$, and $\cH = \sigma(Y)$.
+
+  \begin{enumerate}
+    \item Find $\E(Y \mid \cF)$, $\Var(Y \mid \cF)$, $\P(Y = 3 \mid \cF)$.
+    \item Find $\E(Y \mid \cH)$, $\Var(Y \mid \cH)$, $\P(Y = 3 \mid \cH)$.
+  \end{enumerate}
+
+    \item A Hedgehog in the fog starts in $(0, 0)$ at $t=0$ and moves randomly with equal probabilities in four directions (north, south, east, west) by one unit every minute. 
+
+Let $X_t$ and $Y_t$ be his coordinates after $t$ minutes and $S_t = X_t + Y_t$.
+
+\begin{enumerate}
+    \item Find $\E(X_2 \mid S_2)$;
+    \item Find $\Var(X_2 \mid S_2)$.
+\end{enumerate}
+
+\item The random variables $X_i$ are independent and they take values $+1$ or $-1$ with equal probability. 
+\begin{enumerate}
+\item  Explicitely list all the events in sigma-algebra $\sigma(X_1)$ and $\sigma(X_1 \cdot X_2)$.
+\item  Pavel says that he knows only whether $X_1$ and $X_3$ are equal. 
+How will you describe his knowledge with sigma-algebra?
+\item  How many events are in the sigma-algebra $\sigma(X_1, X_1 + X_2, X_1 + X_2 + X_3)$?
+\end{enumerate}
+
+
+%    \item The random variables $X$ and $Y$ are independend with Poisson distribution with rate $\lambda = 1$.
+%Let $S = X + Y$.
+
+%\begin{enumerate}
+%  \item Find conditional probabilities $\P(X = x \mid S = s)$ and $\P(Y = y \mid S = s)$.
+%  \item Find conditional expected values $\E(X \mid S)$ and $\E(Y \mid S)$.
+%  \item Find conditional variances $\Var(X \mid S)$ and $\Var(Y \mid S)$.
+%  \item How the answers will change if $X \sim \dPois(\lambda_x)$ and $Y \sim \dPois(\lambda_y)$?
+% \end{enumerate}
+
+
+\end{enumerate}
+
+
+
 
 \end{document}
 
