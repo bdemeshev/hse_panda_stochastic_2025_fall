@@ -1,0 +1,226 @@
+% arara: xelatex
+\documentclass[12pt]{article}
+
+% \usepackage{physics}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\usepackage{tikzducks}
+
+\usepackage{tikz} % картинки в tikz
+\usetikzlibrary{shapes, arrows, positioning}
+\usepackage{microtype} % свешивание пунктуации
+
+\usepackage{array} % для столбцов фиксированной ширины
+
+\usepackage{indentfirst} % отступ в первом параграфе
+
+\usepackage{sectsty} % для центрирования названий частей
+\allsectionsfont{\centering}
+
+\usepackage{amsmath, amsfonts, amssymb} % куча стандартных математических плюшек
+
+\usepackage{comment}
+
+\usepackage[top=2cm, left=1.2cm, right=1.2cm, bottom=2cm]{geometry} % размер текста на странице
+
+\usepackage{lastpage} % чтобы узнать номер последней страницы
+
+\usepackage{enumitem} % дополнительные плюшки для списков
+%  например \begin{enumerate}[resume] позволяет продолжить нумерацию в новом списке
+\usepackage{caption}
+
+\usepackage{url} % to use \url{link to web}
+
+
+\newcommand{\smallduck}{\begin{tikzpicture}[scale=0.3]
+    \duck[
+        cape=black,
+        hat=black,
+        mask=black
+    ]
+    \end{tikzpicture}}
+
+\usepackage{fancyhdr} % весёлые колонтитулы
+\pagestyle{fancy}
+\lhead{Stochastic Processes}
+\chead{}
+\rhead{Black Midterm, 11/11}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{tcolorbox} % рамочки!
+
+\usepackage{todonotes} % для вставки в документ заметок о том, что осталось сделать
+% \todo{Здесь надо коэффициенты исправить}
+% \missingfigure{Здесь будет Последний день Помпеи}
+% \listoftodos - печатает все поставленные \todo'шки
+
+
+% более красивые таблицы
+\usepackage{booktabs}
+% заповеди из докупентации:
+% 1. Не используйте вертикальные линни
+% 2. Не используйте двойные линии
+% 3. Единицы измерения - в шапку таблицы
+% 4. Не сокращайте .1 вместо 0.1
+% 5. Повторяющееся значение повторяйте, а не говорите "то же"
+
+
+\setcounter{MaxMatrixCols}{20}
+% by crazy default pmatrix supports only 10 cols :)
+
+
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage{polyglossia}
+
+\setmainlanguage{russian}
+\setotherlanguages{english}
+
+
+\usetikzlibrary{automata, positioning, arrows.meta, calc, shapes.multipart}
+
+
+% download "Linux Libertine" fonts:
+% http://www.linuxlibertine.org/index.php?id=91&L=1
+% \setmainfont{Linux Libertine O} % or Helvetica, Arial, Cambria
+% why do we need \newfontfamily:
+% http://tex.stackexchange.com/questions/91507/
+% \newfontfamily{\cyrillicfonttt}{Linux Libertine O}
+
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ} % для списков с русскими буквами
+% \setlist[enumerate, 2]{label=\asbuk*),ref=\asbuk*}
+
+%% эконометрические сокращения
+\DeclareMathOperator{\Cov}{\mathbb{C}ov}
+\DeclareMathOperator{\Corr}{\mathbb{C}orr}
+\DeclareMathOperator{\Var}{\mathbb{V}ar}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+
+\let\P\relax
+\DeclareMathOperator{\P}{\mathbb{P}}
+
+\DeclareMathOperator{\E}{\mathbb{E}}
+% \DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\card}{card}
+
+\DeclareMathOperator{\Convex}{Convex}
+\DeclareMathOperator{\plim}{plim}
+
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\hb}{\hat{\beta}}
+\newcommand{\dPois}{\mathrm{Pois}}
+
+
+
+
+
+\begin{document}
+
+\begin{enumerate}
+    \item {[10]} Consider an acrobat walking on the vertices of a triangle \( \triangle ABC \). The acrobat is starting in vertex \(A\) and the flea is glued to vertex \(B\). Each minute the acrobat moves to an adjacent vertex with the following transition probabilities: \(\P(A \to B)=0.4,\qquad \P(A \to C)=0.6, \qquad \P(B \to C)= 0.2, \qquad \P(B \to A)=0.5, \qquad \P(C \to B)=\P(C \to A)=0.5.\)
+
+    \begin{enumerate}
+        \item {[2]} Draw the graph of the Markov chain.
+        \item {[2]} Write down its transition matrix.
+        \item {[3]} Compute the probability that the acrobat steps on the flea exactly twice in three steps.
+        \item {[3]} Compute the expected number of steps needed for the acrobat to return to vertex \(A\) for the first time.
+    \end{enumerate}
+
+
+    \item The creature cycles through internal behavioural states. At each minute it is in one of three states: Dormant (\(D\)), Active (\(A\)), or Feeding (\(F\)). The transition mechanism is governed by the following rules:    
+    \begin{itemize}
+    	\item If the creature is Dormant (\(D\)), it becomes Active with probability \(0.6\) and begins Feeding with probability \(0.4\).
+    	\item If the creature is Active (\(A\)), it remains Active with probability \(0.5\), becomes Dormant with probability \(0.3\).
+    	\item If the creature is Feeding (\(F\)), it becomes Dormant with probability \(0.4\).
+    \end{itemize}
+    
+    \begin{enumerate}
+    	\item {[2]} Write the transition matrix \(P\) of the Markov chain.
+    	\item {[5]} Find the stationary distribution of this chain.
+    	\item {[3]} Using the stationary distribution find the average time between two Feeding states.
+    \end{enumerate}
+
+    \item {[10]} The acrobat is making his way along the real line now. He begins at the point \(x = 1\). Each minute he moves one step to the left with probability \(0.3\) or one step to the right with probability \(0.7\). This rule has two exceptions: the absorbing point \(x = 0\) (where he is pulled in and **never** move again) and the reflecting barrier at \(x = 3\), where a strange force always pushes him back with probability \(1\). Let $T$ be the time to be pulled in. 
+    
+    \begin{enumerate}
+    	\item {[1]} Draw the corresponding Markov chain.
+    	\item {[1]} Write down the transition matrix.
+    	\item {[4]} Find $\E(T)$.
+    	\item {[4]} Find $\Var(T)$. 
+	\end{enumerate}
+
+\newpage
+	\item Consider the Markov chain with the transition matrix
+	\[
+	P = \begin{pmatrix}
+	0.2 & 0.2 & 0 & 0.6 & 0 \\
+	0.3 & 0.3 & 0.4 & 0 & 0 \\
+	0 & 0 & 0.3 & 0.7 & 0 \\
+	0 & 0 & 0.8 & 0.2 & 0 \\
+	0 & 0 & 0 & 0 & 1
+	\end{pmatrix}.
+	\]
+	
+	 \begin{enumerate}
+		\item {[3]} Split the chain in classes and classify them into closed or not closed.
+		\item {[3]} Classify the states into recurrent or transient.
+		\item {[4]} Find the period of each state.
+	\end{enumerate}
+	
+
+	\item {[10]} Let the moment generating function (MGF) of \(X\) is \[
+	M_X(t) = \frac{1}{1 - 2t}, \qquad t < \frac{1}{2}.
+	\]
+	
+	\begin{enumerate}
+		\item {[5]} Compute the mean and variance of \(X\) using the MGF.
+		\item {[5]} Let \(S_n = X_1 + X_2 + \cdots + X_n\), where the \(X_i\) are independent and identically distributed.  
+		Find the MGF of \(S_n\).
+	\end{enumerate}
+	
+	\item By the mayor's decree, the city installs the total mass of $T_n$ New Year's trees each day, \( n = 1, 2, \ldots \), starting from October 20th. 
+The random variables $T_1, T_2, \dots$ are independent and uniform on $[0; 4]$.
+
+The amounts of snow $(W_n)$ are independent and exponentially distributed with rate $\lambda_n = n$.
+
+Determine the probability limits for the following sequences:
+\begin{enumerate}
+    \item {[2]} mayor's New Year kpi,   
+    \(    X_n = \frac{1}{n} \sum_{i=1}^n T_i
+    \)
+    \item {[3]} the New Year's mood given by
+    \(
+    Y_n = \frac{2 X_n +1}{X_n + 10}
+    \)
+    \item {[5]} The average number of snowmen that can be built each day:
+    \(
+    S_n = \frac{1}{n} \sum_{i=1}^n W_i.
+    \)
+\end{enumerate}
+
+
+	
+	\end{enumerate}
+
+
+\end{document}
+

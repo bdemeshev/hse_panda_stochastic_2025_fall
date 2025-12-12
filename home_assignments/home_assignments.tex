@@ -541,6 +541,39 @@ How will you describe his knowledge with sigma-algebra?
 
 
 
+\section*{Last dance}
+
+Live in quizzes: 15 December. 
+
+\begin{minipage}{0.9\textwidth}
+        \includegraphics[scale=0.75]{figures/xkcd_688_self_description.png}  
+\end{minipage}
+
+
+\begin{enumerate}
+    \item Let $(W_t)$ be a standard Wiener process. 
+    \begin{enumerate}
+        \item Find $\E(W_5 W_6 \mid W_5)$, $\Var(W_5 W_6 \mid W_5)$.
+        \item Find $\E(W_7^6)$.
+        \item Find $\E(W_3^2 W_5^2)$.
+        \item What is the distribution of $R = 5W_2 + 6W_7$?
+    \end{enumerate}
+    Hint: Stein lemma, Isserlis theorem.
+    \item Let $(W_t)$ be a standard Wiener process.  Consider the process $Q_t$:
+    \[
+    Q_t = \begin{cases}
+        1, \text{ if } t < 2, \\
+        W_1^2, \text{ if } t \geq 2.
+    \end{cases}
+    \]
+    \begin{enumerate}
+        \item Find the integral $I = \int_0^5 Q_s \, dW_s$ in terms of values of $(W_t)$.
+        \item Find $\E(I)$ and $\Var(I)$.
+    \end{enumerate}
+\end{enumerate}
+
+
+
 \end{document}
 
 
